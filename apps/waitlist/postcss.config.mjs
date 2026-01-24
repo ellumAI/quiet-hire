@@ -1,0 +1,1 @@
+export { default } from "@quiethire/ui/postcss.config";
