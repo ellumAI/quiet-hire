@@ -28,14 +28,14 @@ export function Header() {
       transition={{ duration: 0.5, ease: "easeOut" }}
       className={cn(
         "fixed left-0 right-0 top-4 z-50 mx-auto w-full max-w-5xl px-4 transition-all duration-300 md:top-6 md:px-6",
-        scrolled ? "px-4 md:px-6" : "px-4 md:px-6"
+        scrolled ? "px-4 md:px-6" : "px-4 md:px-6",
       )}
     >
       <div
         className={cn(
           "mx-auto flex h-14 w-full items-center justify-between rounded-full border border-transparent px-4 transition-all duration-300 md:px-6",
           scrolled &&
-            "border-border/40 bg-background/60 shadow-lg shadow-black/5 backdrop-blur-xl"
+            "border-border/40 bg-background/60 shadow-lg shadow-black/5 backdrop-blur-xl",
         )}
       >
         <a href="/" className="flex items-center gap-2">
@@ -134,10 +134,7 @@ export function Header() {
                   className="w-full h-10 rounded-xl text-sm font-medium"
                   asChild
                 >
-                  <a
-                    href="#waitlist"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
+                  <a href="#waitlist" onClick={() => setMobileMenuOpen(false)}>
                     Join Waitlist
                   </a>
                 </Button>

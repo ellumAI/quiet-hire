@@ -18,13 +18,13 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v5
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
+      - name: Remove packageManager field
+        run: node -e "const p=require('./package.json');delete p.packageManager;require('fs').writeFileSync('./package.json',JSON.stringify(p,null,2)+'\n')"
 
       - name: Setup Node.js
         uses: actions/setup-node@v5
         with:
-          node-version: 22
+          node-version: latest
 
       - name: Install Vercel CLI
         run: npm install -g vercel
