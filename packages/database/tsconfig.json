@@ -1,0 +1,10 @@
+{
+  "extends": "@quiethire/typescript-config/base.json",
+  "include": ["src", "env.ts"],
+  "exclude": ["node_modules"],
+  "compilerOptions": {
+    "paths": {
+      "@db/*": ["./src/*"]
+    }
+  }
+}
