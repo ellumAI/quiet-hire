@@ -17,7 +17,7 @@ export function Footer() {
           >
             <h2 className="text-3xl font-bold tracking-tight text-foreground md:text-4xl">
               Join the{" "}
-              <span className="font-display italic bg-gradient-to-r from-primary via-purple-500 to-primary bg-clip-text text-transparent">
+              <span className="font-display italic bg-linear-to-r from-primary via-purple-500 to-primary bg-clip-text text-transparent">
                 waitlist
               </span>
             </h2>
