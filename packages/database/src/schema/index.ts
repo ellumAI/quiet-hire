@@ -36,3 +36,6 @@ export {
   distributionStatusEnum,
   jobDistributions,
 } from "./job-distributions";
+
+// Job Transparency Log
+export { jobTransparencyLog } from "./job-transparency-log";

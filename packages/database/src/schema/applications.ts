@@ -13,9 +13,8 @@ import { jobs } from "./jobs";
 // ── Enums ──────────────────────────────────────────────────────────────────────
 
 export const applicationStatusEnum = pgEnum("application_status", [
-  "pending",
-  "reviewing",
-  "shortlisted",
+  "not_reviewed",
+  "under_review",
   "interviewing",
   "rejected",
   "hired",
@@ -39,15 +38,22 @@ export const applications = pgTable("applications", {
 
   // Application content
   resumeUrl: text("resume_url"),
+  linkedinUrl: text("linkedin_url"),
   coverLetter: text("cover_letter"),
 
   // Status & filtering
-  status: applicationStatusEnum("status").notNull().default("pending"),
+  status: applicationStatusEnum("status").notNull().default("not_reviewed"),
 
   // AI relevance check
   relevanceScore: real("relevance_score"),
   relevanceFeedback: text("relevance_feedback"),
   isRelevant: boolean("is_relevant"),
+
+  // Talent pool consent (PRD §5.3)
+  talentPoolOptIn: boolean("talent_pool_opt_in").notNull().default(false),
+
+  // Admin moderation (ERD §1.3)
+  flagged: boolean("flagged").notNull().default(false),
 
   createdAt: timestamp("created_at").notNull().defaultNow(),
   updatedAt: timestamp("updated_at").notNull().defaultNow(),

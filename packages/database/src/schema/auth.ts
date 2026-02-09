@@ -23,6 +23,16 @@ export const user = pgTable("user", {
   emailVerified: boolean("email_verified").notNull().default(false),
   image: text("image"),
   role: userRoleEnum("role").notNull().default("candidate"),
+
+  // Better Auth: username plugin
+  username: text("username").unique(),
+  displayUsername: text("display_username"),
+
+  // Recruiter identity fields (ERD §1.1)
+  companyName: text("company_name"),
+  linkedinUrl: text("linkedin_url"),
+  twitterUrl: text("twitter_url"),
+
   createdAt: timestamp("created_at").notNull().defaultNow(),
   updatedAt: timestamp("updated_at").notNull().defaultNow(),
 });

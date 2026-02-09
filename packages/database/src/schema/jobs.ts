@@ -67,7 +67,11 @@ export const jobs = pgTable("jobs", {
   salaryMax: integer("salary_max"),
   salaryCurrency: text("salary_currency").notNull().default("USD"),
 
-  // Skills
+  // Structured job data (ERD §1.2)
+  requirements: jsonb("requirements").$type<string[]>().default([]),
+  responsibilities: jsonb("responsibilities").$type<string[]>().default([]),
+
+  // Skills (searchable tags)
   skills: jsonb("skills").$type<string[]>().default([]),
 
   // Transparency indicators (key differentiator)
@@ -86,4 +90,5 @@ export const jobs = pgTable("jobs", {
 
   createdAt: timestamp("created_at").notNull().defaultNow(),
   updatedAt: timestamp("updated_at").notNull().defaultNow(),
+  deletedAt: timestamp("deleted_at"),
 });
