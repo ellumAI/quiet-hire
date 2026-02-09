@@ -1,1 +1,1 @@
-export { default } from "@quiethire/ui/postcss.config";
+export { default } from "@hackhyre/ui/postcss.config";

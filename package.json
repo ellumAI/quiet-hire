@@ -1,5 +1,5 @@
 {
-  "name": "quiet-hire",
+  "name": "hackhyre",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -9,8 +9,8 @@
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "devDependencies": {
-    "@quiethire/eslint-config": "workspace:*",
-    "@quiethire/typescript-config": "workspace:*",
+    "@hackhyre/eslint-config": "workspace:*",
+    "@hackhyre/typescript-config": "workspace:*",
     "prettier": "^3.8.1",
     "turbo": "^2.8.3",
     "typescript": "5.9.3"

@@ -1,30 +1,29 @@
-import { Geist, Geist_Mono } from "next/font/google"
+import "@hackhyre/ui/globals.css";
+import { Providers } from "@/components/providers";
+import { Bricolage_Grotesque, DM_Sans } from "next/font/google";
 
-import "@quiethire/ui/globals.css"
-import { Providers } from "@/components/providers"
-
-const fontSans = Geist({
+const fontSans = DM_Sans({
   subsets: ["latin"],
   variable: "--font-sans",
-})
+});
 
-const fontMono = Geist_Mono({
+const fontBricolage = Bricolage_Grotesque({
   subsets: ["latin"],
   variable: "--font-mono",
-})
+});
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${fontSans.variable} ${fontMono.variable} font-sans antialiased `}
+        className={`${fontSans.variable}  ${fontBricolage.variable} font-mono antialiased `}
       >
         <Providers>{children}</Providers>
       </body>
     </html>
-  )
+  );
 }

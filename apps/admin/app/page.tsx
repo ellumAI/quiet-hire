@@ -1,4 +1,4 @@
-import { Button } from "@quiethire/ui/components/button"
+import { Button } from "@hackhyre/ui/components/button"
 
 export default function Page() {
   return (

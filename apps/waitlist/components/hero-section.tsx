@@ -1,7 +1,7 @@
 "use client";
 
-import { Badge } from "@quiethire/ui/components/badge";
-import { Button } from "@quiethire/ui/components/button";
+import { Badge } from "@hackhyre/ui/components/badge";
+import { Button } from "@hackhyre/ui/components/button";
 import { motion } from "motion/react";
 import { ArrowRight, Sparkles, Star } from "lucide-react";
 

@@ -5,7 +5,7 @@ import {
   TabsList,
   TabsTrigger,
   TabsContent,
-} from "@quiethire/ui/components/tabs";
+} from "@hackhyre/ui/components/tabs";
 import { motion } from "motion/react";
 import {
   Users,
@@ -17,7 +17,7 @@ import {
   Star,
   Zap,
 } from "lucide-react";
-import { cn } from "@quiethire/ui/lib/utils";
+import { cn } from "@hackhyre/ui/lib/utils";
 
 const reviewerFeatures = [
   {

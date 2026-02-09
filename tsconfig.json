@@ -1,4 +1,4 @@
 {
-  "extends": "@quiethire/typescript-config/base.json"
+  "extends": "@hackhyre/typescript-config/base.json"
 }
 

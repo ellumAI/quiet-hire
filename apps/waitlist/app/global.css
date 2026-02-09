@@ -1,5 +1,5 @@
 @import "tailwindcss";
-@import "@quiethire/ui/globals.css";
+@import "@hackhyre/ui/globals.css";
 
 @theme inline {
   --font-display: var(--font-display);

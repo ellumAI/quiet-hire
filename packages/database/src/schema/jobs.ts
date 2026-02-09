@@ -75,7 +75,7 @@ export const jobs = pgTable("jobs", {
   isFirstSource: boolean("is_first_source").notNull().default(true),
 
   // Source tracking (admin imports)
-  source: text("source").notNull().default("quiethire"),
+  source: text("source").notNull().default("hackhyre"),
   sourceUrl: text("source_url"),
 
   // Recruiter preferences

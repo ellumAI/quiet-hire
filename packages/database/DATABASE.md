@@ -1,8 +1,8 @@
-# QuietHire Database — Schema Reference & Usage Guide
+# HackHyre Database — Schema Reference & Usage Guide
 
 ## Overview
 
-The `@quiethire/db` package provides the complete database layer for QuietHire, a hiring workflow platform. It uses **Drizzle ORM** with **Neon PostgreSQL** (serverless) and **Better Auth** for authentication.
+The `@hackhyre/db` package provides the complete database layer for HackHyre, a hiring workflow platform. It uses **Drizzle ORM** with **Neon PostgreSQL** (serverless) and **Better Auth** for authentication.
 
 ```
 packages/database/
@@ -32,7 +32,7 @@ packages/database/
 
 ### 1. Create a `.env` file
 
-In the **monorepo root** (or in each app that uses `@quiethire/db`), add:
+In the **monorepo root** (or in each app that uses `@hackhyre/db`), add:
 
 ```env
 DATABASE_URL="postgresql://user:password@your-project.us-east-2.aws.neon.tech/neondb?sslmode=require"
@@ -128,7 +128,7 @@ Stores company/organization info linked to recruiter accounts.
 | `updated_at` | timestamp | |
 
 #### `jobs`
-Core table for job listings with QuietHire's transparency indicators.
+Core table for job listings with HackHyre's transparency indicators.
 
 | Column | Type | Notes |
 |--------|------|-------|
@@ -148,8 +148,8 @@ Core table for job listings with QuietHire's transparency indicators.
 | `salary_currency` | text | Default `USD` |
 | `skills` | jsonb | Array of skill strings `["React", "Node.js"]` |
 | `first_published_at` | timestamp | When first made public (transparency) |
-| `is_first_source` | boolean | Whether QuietHire was the first to publish |
-| `source` | text | `quiethire` / `imported` / `admin` |
+| `is_first_source` | boolean | Whether HackHyre was the first to publish |
+| `source` | text | `hackhyre` / `imported` / `admin` |
 | `source_url` | text | Original URL for imported jobs |
 | `shortlist_limit` | integer | Max candidates shown to recruiter (default 10) |
 | `show_linkedin` | boolean | Show recruiter's LinkedIn |
@@ -236,7 +236,7 @@ Tracks where each job has been distributed.
 |--------|------|-------|
 | `id` | uuid PK | |
 | `job_id` | uuid FK→jobs | Cascade delete |
-| `channel` | enum(`distribution_channel`) | `quiethire` / `linkedin` / `twitter` / `company_page` / `other` |
+| `channel` | enum(`distribution_channel`) | `hackhyre` / `linkedin` / `twitter` / `company_page` / `other` |
 | `external_url` | text | Link to external posting |
 | `posted_at` | timestamp | When distributed |
 | `posted_by` | text FK→user | Who posted |
@@ -277,7 +277,7 @@ jobs
 
 ```bash
 # From monorepo root — push schema directly to Neon
-pnpm --filter @quiethire/db db:push
+pnpm --filter @hackhyre/db db:push
 ```
 
 This is the fastest way to get started. It pushes the schema directly to Neon without generating migration files.
@@ -286,19 +286,19 @@ This is the fastest way to get started. It pushes the schema directly to Neon wi
 
 ```bash
 # 1. Generate migration SQL files
-pnpm --filter @quiethire/db db:generate
+pnpm --filter @hackhyre/db db:generate
 
 # 2. Review the generated SQL in packages/database/drizzle/
 
 # 3. Apply migrations
-pnpm --filter @quiethire/db db:migrate
+pnpm --filter @hackhyre/db db:migrate
 ```
 
 ### Inspect Your Database
 
 ```bash
 # Open Drizzle Studio (web-based DB browser)
-pnpm --filter @quiethire/db db:studio
+pnpm --filter @hackhyre/db db:studio
 ```
 
 ### After Schema Changes
@@ -306,8 +306,8 @@ pnpm --filter @quiethire/db db:studio
 Whenever you modify files in `src/schema/`, re-run:
 
 ```bash
-pnpm --filter @quiethire/db db:generate
-pnpm --filter @quiethire/db db:migrate
+pnpm --filter @hackhyre/db db:generate
+pnpm --filter @hackhyre/db db:migrate
 ```
 
 ---
@@ -317,8 +317,8 @@ pnpm --filter @quiethire/db db:migrate
 ### Import the database client
 
 ```typescript
-import { db } from "@quiethire/db";
-import { jobs, applications, user } from "@quiethire/db/schema";
+import { db } from "@hackhyre/db";
+import { jobs, applications, user } from "@hackhyre/db/schema";
 import { eq, desc } from "drizzle-orm";
 ```
 
@@ -405,7 +405,7 @@ await db.insert(talentPool).values({
 **In your Next.js API route (e.g., `apps/web`):**
 
 ```typescript
-import { auth } from "@quiethire/db/auth";
+import { auth } from "@hackhyre/db/auth";
 
 // In your route handler
 export const { GET, POST } = auth.handler;
@@ -446,7 +446,7 @@ await authClient.signUp.email({
 | `employment_type` | `full_time`, `part_time`, `contract`, `internship` |
 | `experience_level` | `entry`, `mid`, `senior`, `lead`, `executive` |
 | `application_status` | `pending`, `reviewing`, `shortlisted`, `interviewing`, `rejected`, `hired` |
-| `distribution_channel` | `quiethire`, `linkedin`, `twitter`, `company_page`, `other` |
+| `distribution_channel` | `hackhyre`, `linkedin`, `twitter`, `company_page`, `other` |
 | `distribution_status` | `active`, `removed` |
 
 ---
@@ -455,10 +455,10 @@ await authClient.signUp.email({
 
 | Import Path | What You Get |
 |-------------|-------------|
-| `@quiethire/db` | `db` client, `env`, all tables & enums |
-| `@quiethire/db/schema` | All tables & enums only |
-| `@quiethire/db/auth` | Better Auth `auth` instance + `Session`/`User` types |
-| `@quiethire/db/client` | `db` client only |
+| `@hackhyre/db` | `db` client, `env`, all tables & enums |
+| `@hackhyre/db/schema` | All tables & enums only |
+| `@hackhyre/db/auth` | Better Auth `auth` instance + `Session`/`User` types |
+| `@hackhyre/db/client` | `db` client only |
 
 ---
 
@@ -468,7 +468,7 @@ Infer row types from any table:
 
 ```typescript
 import type { InferSelectModel, InferInsertModel } from "drizzle-orm";
-import { jobs, applications, user } from "@quiethire/db/schema";
+import { jobs, applications, user } from "@hackhyre/db/schema";
 
 type Job = InferSelectModel<typeof jobs>;
 type NewJob = InferInsertModel<typeof jobs>;
@@ -479,5 +479,5 @@ type User = InferSelectModel<typeof user>;
 Or use Better Auth's inferred types:
 
 ```typescript
-import type { Session, User } from "@quiethire/db/auth";
+import type { Session, User } from "@hackhyre/db/auth";
 ```

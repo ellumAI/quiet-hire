@@ -14,7 +14,7 @@
     "components": "@/components",
     "hooks": "@/hooks",
     "lib": "@/lib",
-    "utils": "@quiethire/ui/lib/utils",
-    "ui": "@quiethire/ui/components"
+    "utils": "@hackhyre/ui/lib/utils",
+    "ui": "@hackhyre/ui/components"
   }
 }

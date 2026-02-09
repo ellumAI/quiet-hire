@@ -11,10 +11,10 @@
   },
   "iconLibrary": "lucide",
   "aliases": {
-    "components": "@quiethire/ui/components",
-    "utils": "@quiethire/ui/lib/utils",
-    "hooks": "@quiethire/ui/hooks",
-    "lib": "@quiethire/ui/lib",
-    "ui": "@quiethire/ui/components"
+    "components": "@hackhyre/ui/components",
+    "utils": "@hackhyre/ui/lib/utils",
+    "hooks": "@hackhyre/ui/hooks",
+    "lib": "@hackhyre/ui/lib",
+    "ui": "@hackhyre/ui/components"
   }
 }

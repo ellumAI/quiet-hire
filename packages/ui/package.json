@@ -1,5 +1,5 @@
 {
-  "name": "@quiethire/ui",
+  "name": "@hackhyre/ui",
   "version": "0.0.0",
   "type": "module",
   "private": true,
@@ -30,11 +30,11 @@
     "zod": "^4.3.6"
   },
   "devDependencies": {
-    "@quiethire/eslint-config": "workspace:*",
-    "@quiethire/typescript-config": "workspace:*",
+    "@hackhyre/eslint-config": "workspace:*",
+    "@hackhyre/typescript-config": "workspace:*",
     "@tailwindcss/postcss": "^4.1.18",
     "@turbo/gen": "^2.8.3",
-    "@types/node": "^25.2.1",
+    "@types/node": "^25.2.2",
     "@types/react": "^19.2.13",
     "@types/react-dom": "^19.2.3",
     "eslint": "^10.0.0",

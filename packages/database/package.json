@@ -1,5 +1,5 @@
 {
-    "name": "@quiethire/db",
+    "name": "@hackhyre/db",
     "private": true,
     "main": "./src/index.ts",
     "types": "./src/index.ts",
@@ -18,14 +18,14 @@
     "dependencies": {
         "@neondatabase/serverless": "^1.0.2",
         "@t3-oss/env-core": "^0.13.10",
-        "bcrypt-ts": "^8.0.0",
+        "bcrypt-ts": "^8.0.1",
         "better-auth": "^1.4.18",
-        "dotenv": "^17.2.3",
+        "dotenv": "^17.2.4",
         "drizzle-orm": "^0.45.1",
-        "pg": "^8.16.3",
+        "pg": "^8.18.0",
         "zod": "^4.3.6"
     },
     "devDependencies": {
-        "drizzle-kit": "^0.31.8"
+        "drizzle-kit": "^0.31.9"
     }
 }

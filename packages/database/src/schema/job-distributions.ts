@@ -11,7 +11,7 @@ import { jobs } from "./jobs";
 // ── Enums ──────────────────────────────────────────────────────────────────────
 
 export const distributionChannelEnum = pgEnum("distribution_channel", [
-  "quiethire",
+  "hackhyre",
   "linkedin",
   "twitter",
   "company_page",

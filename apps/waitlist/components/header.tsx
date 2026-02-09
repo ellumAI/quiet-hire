@@ -1,10 +1,10 @@
 /* eslint-disable @next/next/no-html-link-for-pages */
 "use client";
 
-import { Button } from "@quiethire/ui/components/button";
+import { Button } from "@hackhyre/ui/components/button";
 import { motion, AnimatePresence } from "motion/react";
 import { useEffect, useState } from "react";
-import { cn } from "@quiethire/ui/lib/utils";
+import { cn } from "@hackhyre/ui/lib/utils";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { Menu, X } from "lucide-react";
 

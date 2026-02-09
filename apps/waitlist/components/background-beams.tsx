@@ -1,5 +1,5 @@
 "use client";
-import { cn } from "@quiethire/ui/lib/utils";
+import { cn } from "@hackhyre/ui/lib/utils";
 import { motion } from "motion/react";
 
 export const BackgroundBeams = ({ className }: { className?: string }) => {

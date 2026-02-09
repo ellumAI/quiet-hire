@@ -12,18 +12,19 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@quiethire/ui": "workspace:*",
+    "@hackhyre/ui": "workspace:*",
     "lucide-react": "^0.563.0",
+    "motion": "^12.33.0",
     "next": "16.1.6",
     "next-themes": "^0.4.6",
     "react": "^19.2.4",
     "react-dom": "^19.2.4"
   },
   "devDependencies": {
-    "@quiethire/eslint-config": "workspace:^",
-    "@quiethire/typescript-config": "workspace:*",
+    "@hackhyre/eslint-config": "workspace:^",
+    "@hackhyre/typescript-config": "workspace:*",
     "@tailwindcss/postcss": "^4.1.18",
-    "@types/node": "^25.2.1",
+    "@types/node": "^25.2.2",
     "@types/react": "^19.2.13",
     "@types/react-dom": "^19.2.3",
     "eslint": "^10.0.0",

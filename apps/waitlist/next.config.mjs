@@ -3,7 +3,7 @@ const nextConfig = {
   experimental: {
     typedEnv: true,
   },
-  transpilePackages: ["@quiethire/ui"],
+  transpilePackages: ["@hackhyre/ui"],
 };
 
 export default nextConfig;

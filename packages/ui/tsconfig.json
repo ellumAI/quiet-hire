@@ -1,8 +1,8 @@
 {
-  "extends": "@quiethire/typescript-config/react-library.json",
+  "extends": "@hackhyre/typescript-config/react-library.json",
   "compilerOptions": {
     "paths": {
-      "@quiethire/ui/*": ["./src/*"]
+      "@hackhyre/ui/*": ["./src/*"]
     }
   },
   "include": ["."],

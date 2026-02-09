@@ -6,9 +6,9 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { motion, AnimatePresence } from "motion/react";
 import { Loader2, Check } from "lucide-react";
-import { Button } from "@quiethire/ui/components/button";
-import { Input } from "@quiethire/ui/components/input";
-import { Checkbox } from "@quiethire/ui/components/checkbox";
+import { Button } from "@hackhyre/ui/components/button";
+import { Input } from "@hackhyre/ui/components/input";
+import { Checkbox } from "@hackhyre/ui/components/checkbox";
 import {
   Form,
   FormField,
@@ -16,7 +16,7 @@ import {
   FormLabel,
   FormControl,
   FormMessage,
-} from "@quiethire/ui/components/form";
+} from "@hackhyre/ui/components/form";
 import { joinWaitlist } from "@/app/actions/waitlist";
 
 const formSchema = z.object({

@@ -1,9 +1,9 @@
 {
-  "extends": "@quiethire/typescript-config/nextjs.json",
+  "extends": "@hackhyre/typescript-config/nextjs.json",
   "compilerOptions": {
     "paths": {
       "@/*": ["./*"],
-      "@quiethire/ui/*": ["../../packages/ui/src/*"]
+      "@hackhyre/ui/*": ["../../packages/ui/src/*"]
     },
     "plugins": [
       {

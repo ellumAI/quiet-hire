@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "@quiethire/ui/components/button";
+import { Button } from "@hackhyre/ui/components/button";
 import { motion } from "motion/react";
 import { ArrowRight, Sparkles } from "lucide-react";
 

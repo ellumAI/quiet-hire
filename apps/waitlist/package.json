@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
-    "@quiethire/ui": "workspace:*",
+    "@hackhyre/ui": "workspace:*",
     "@t3-oss/env-nextjs": "^0.13.10",
     "clsx": "^2.1.1",
     "lucide-react": "^0.563.0",
@@ -29,10 +29,10 @@
     "zod": "^4.3.6"
   },
   "devDependencies": {
-    "@quiethire/eslint-config": "workspace:^",
-    "@quiethire/typescript-config": "workspace:*",
+    "@hackhyre/eslint-config": "workspace:^",
+    "@hackhyre/typescript-config": "workspace:*",
     "@tailwindcss/postcss": "^4.1.18",
-    "@types/node": "^25.2.1",
+    "@types/node": "^25.2.2",
     "@types/react": "^19.2.13",
     "@types/react-dom": "^19.2.3",
     "eslint": "^10.0.0",

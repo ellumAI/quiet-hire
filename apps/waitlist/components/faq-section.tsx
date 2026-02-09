@@ -5,7 +5,7 @@ import {
   AccordionItem,
   AccordionTrigger,
   AccordionContent,
-} from "@quiethire/ui/components/accordion";
+} from "@hackhyre/ui/components/accordion";
 import { motion } from "motion/react";
 
 const faqs = [
