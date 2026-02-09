@@ -7,7 +7,7 @@ Comprehensive styling reference for React Email templates.
 Use the `Tailwind` component for styling if the project uses Tailwind CSS. Otherwise, use inline styles.
 
 ```tsx
-import { Tailwind, pixelBasedPreset } from '@react-email/components';
+import { Tailwind, pixelBasedPreset } from "@react-email/components";
 
 <Tailwind
   config={{
@@ -15,14 +15,14 @@ import { Tailwind, pixelBasedPreset } from '@react-email/components';
     theme: {
       extend: {
         colors: {
-          brand: '#007bff',
+          brand: "#007bff",
         },
       },
     },
   }}
 >
   {/* Email content */}
-</Tailwind>
+</Tailwind>;
 ```
 
 ## pixelBasedPreset
@@ -40,6 +40,7 @@ import { pixelBasedPreset } from '@react-email/components';
 Email clients have significant CSS restrictions. Follow these rules:
 
 ### Unsupported Features
+
 - **SVG/WEBP images** - Use PNG or JPEG only
 - **Flexbox/Grid** - Use `Row`/`Column` components or tables
 - **Media queries** - `sm:`, `md:`, `lg:`, `xl:` prefixes don't work
@@ -47,6 +48,7 @@ Email clients have significant CSS restrictions. Follow these rules:
 - **rem units** - Use `pixelBasedPreset` for pixel conversion
 
 ### Border Handling
+
 Always specify border style and reset other sides when needed:
 
 ```tsx
@@ -63,6 +65,7 @@ Always specify border style and reset other sides when needed:
 ## Component Structure
 
 ### Head Placement
+
 Always define `<Head />` inside `<Tailwind>` when using Tailwind CSS:
 
 ```tsx
@@ -75,6 +78,7 @@ Always define `<Head />` inside `<Tailwind>` when using Tailwind CSS:
 ```
 
 ### PreviewProps
+
 Only include props that the component actually uses:
 
 ```tsx
@@ -94,18 +98,23 @@ Email.PreviewProps = {
 ## Default Layout Structure
 
 ### Body
+
 ```tsx
 <Body className="font-sans py-10 bg-gray-100">
 ```
 
 ### Container
+
 White background, centered, left-aligned content:
+
 ```tsx
 <Container className="mx-auto bg-white p-6 rounded">
 ```
 
 ### Footer
+
 Include physical address, unsubscribe link, current year:
+
 ```tsx
 <Section className="text-center text-gray-500 text-sm">
   <Text className="m-0">123 Main St, City, State 12345</Text>
@@ -117,18 +126,23 @@ Include physical address, unsubscribe link, current year:
 ## Typography
 
 ### Titles
+
 Bold, larger font, larger margins:
+
 ```tsx
 <Heading className="text-2xl font-bold text-gray-900 mb-4">
 ```
 
 ### Paragraphs
+
 Regular weight, smaller font, smaller margins:
+
 ```tsx
 <Text className="text-base text-gray-700 mb-3">
 ```
 
 ### Hierarchy
+
 Use consistent spacing that respects content hierarchy. Larger margins for headings, smaller for body text.
 
 ## Images
@@ -165,12 +179,15 @@ Always use `box-border` to prevent padding overflow:
 ## Layout
 
 ### Mobile-First
+
 Always design for mobile by default:
+
 - Use stacked layouts that work on all screen sizes
 - Max-width around 600px for main container
 - Remove default spacing/margins/padding between list items
 
 ### Multi-Column
+
 Use `Row` and `Column` components instead of flexbox/grid:
 
 ```tsx
@@ -183,6 +200,7 @@ Use `Row` and `Column` components instead of flexbox/grid:
 ## Dark Mode
 
 When requested, use dark backgrounds:
+
 - Container: black (`#000`)
 - Background: dark gray (`#151516`)
 
@@ -196,6 +214,7 @@ When requested, use dark backgrounds:
 ### Gathering Brand Colors
 
 Before creating emails, collect these colors from the user:
+
 - **Primary**: Main brand color for buttons, links, key accents
 - **Secondary**: Supporting color for borders, backgrounds, less prominent elements
 - **Text**: Main body text color (suggest `#1a1a1a` for light backgrounds)
@@ -209,7 +228,7 @@ Create a centralized Tailwind config file that all email templates import. Using
 
 ```tsx
 // emails/tailwind.config.ts
-import { pixelBasedPreset, type TailwindConfig } from '@react-email/components';
+import { pixelBasedPreset, type TailwindConfig } from "@react-email/components";
 
 export default {
   presets: [pixelBasedPreset],
@@ -217,8 +236,8 @@ export default {
     extend: {
       colors: {
         brand: {
-          primary: '#007bff',
-          secondary: '#6c757d',
+          primary: "#007bff",
+          secondary: "#6c757d",
         },
       },
     },
@@ -228,8 +247,8 @@ export default {
 // For non-Tailwind brand assets (optional)
 export const brandAssets = {
   logo: {
-    src: 'https://example.com/logo.png',
-    alt: 'Company Name',
+    src: "https://example.com/logo.png",
+    alt: "Company Name",
     width: 120,
   },
 };
@@ -240,16 +259,20 @@ export const brandAssets = {
 Import the shared config in every email template:
 
 ```tsx
-import tailwindConfig, { brandAssets } from './tailwind.config';
+import tailwindConfig, { brandAssets } from "./tailwind.config";
 
 <Tailwind config={tailwindConfig}>
   <Body className="bg-gray-100 font-sans">
     <Container className="bg-white p-6">
-      <Img src={brandAssets.logo.src} alt={brandAssets.logo.alt} width={brandAssets.logo.width} />
+      <Img
+        src={brandAssets.logo.src}
+        alt={brandAssets.logo.alt}
+        width={brandAssets.logo.width}
+      />
       <Button className="bg-brand-primary text-white">Action</Button>
     </Container>
   </Body>
-</Tailwind>
+</Tailwind>;
 ```
 
 ### Maintaining Consistency

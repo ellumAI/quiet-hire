@@ -1,29 +1,34 @@
-import "@hackhyre/ui/globals.css";
-import { Providers } from "@/components/providers";
-import { Bricolage_Grotesque, DM_Sans } from "next/font/google";
+import '@hackhyre/ui/globals.css'
+import { Providers } from '@/components/providers'
+import { Bricolage_Grotesque, DM_Sans } from 'next/font/google'
+import { cn } from '@hackhyre/ui/lib/utils'
 
 const fontSans = DM_Sans({
-  subsets: ["latin"],
-  variable: "--font-sans",
-});
+  subsets: ['latin'],
+  variable: '--font-sans',
+})
 
 const fontBricolage = Bricolage_Grotesque({
-  subsets: ["latin"],
-  variable: "--font-mono",
-});
+  subsets: ['latin'],
+  variable: '--font-mono',
+})
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${fontSans.variable}  ${fontBricolage.variable} font-mono antialiased `}
+        className={cn(
+          'font-mono antialiased',
+          fontSans.variable,
+          fontBricolage.variable
+        )}
       >
         <Providers>{children}</Providers>
       </body>
     </html>
-  );
+  )
 }

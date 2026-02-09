@@ -27,17 +27,20 @@ This creates a `react-email-starter` folder with sample templates. Also works wi
 Add React Email to an existing codebase:
 
 1. Install dependencies:
+
 ```sh
 npm install @react-email/components
 npm install react-email @react-email/preview-server -D
 ```
 
 2. Create an emails directory:
+
 ```sh
 mkdir emails
 ```
 
 3. Add a preview script to package.json:
+
 ```json
 {
   "scripts": {
@@ -47,6 +50,7 @@ mkdir emails
 ```
 
 4. Start the preview server:
+
 ```sh
 npm run email:dev
 ```
@@ -89,7 +93,7 @@ Once gathered, define a reusable Tailwind configuration. Using `satisfies Tailwi
 
 ```tsx
 // emails/tailwind.config.ts
-import { pixelBasedPreset, type TailwindConfig } from '@react-email/components';
+import { pixelBasedPreset, type TailwindConfig } from "@react-email/components";
 
 export default {
   presets: [pixelBasedPreset],
@@ -97,8 +101,8 @@ export default {
     extend: {
       colors: {
         brand: {
-          primary: '#007bff',      // User's primary brand color
-          secondary: '#6c757d',    // User's secondary color
+          primary: "#007bff", // User's primary brand color
+          secondary: "#6c757d", // User's secondary color
         },
       },
     },
@@ -108,8 +112,8 @@ export default {
 // For non-Tailwind brand assets (optional)
 export const brandAssets = {
   logo: {
-    src: 'https://example.com/logo.png',  // User's logo URL
-    alt: 'Company Name',
+    src: "https://example.com/logo.png", // User's logo URL
+    alt: "Company Name",
     width: 120,
   },
 };
@@ -119,8 +123,8 @@ export const brandAssets = {
 
 ```tsx
 import * as React from "react";
-import tailwindConfig, { brandAssets } from './tailwind.config';
-import { Tailwind, Img } from '@react-email/components';
+import tailwindConfig, { brandAssets } from "./tailwind.config";
+import { Tailwind, Img } from "@react-email/components";
 
 <Tailwind config={tailwindConfig}>
   <Body className="bg-gray-100 font-sans">
@@ -136,7 +140,7 @@ import { Tailwind, Img } from '@react-email/components';
       </Button>
     </Container>
   </Body>
-</Tailwind>
+</Tailwind>;
 ```
 
 ### Asset Locations
@@ -147,7 +151,9 @@ Direct users to place brand assets in appropriate locations:
 - **Custom fonts**: Use the `Font` component with a web font URL (Google Fonts, Adobe Fonts, or self-hosted).
 
 **Example prompt for gathering brand info:**
+
 > "Before I create your email template, I need some brand information to ensure consistency. Could you provide:
+>
 > 1. Your primary brand color (hex code, e.g., #007bff)
 > 2. Your logo URL (must be a publicly accessible PNG or JPEG)
 > 3. Any secondary colors you'd like to use
@@ -171,15 +177,18 @@ import {
   Text,
   Button,
   Tailwind,
-  pixelBasedPreset
-} from '@react-email/components';
+  pixelBasedPreset,
+} from "@react-email/components";
 
 interface WelcomeEmailProps {
   name: string;
   verificationUrl: string;
 }
 
-export default function WelcomeEmail({ name, verificationUrl }: WelcomeEmailProps) {
+export default function WelcomeEmail({
+  name,
+  verificationUrl,
+}: WelcomeEmailProps) {
   return (
     <Html lang="en">
       <Tailwind
@@ -188,7 +197,7 @@ export default function WelcomeEmail({ name, verificationUrl }: WelcomeEmailProp
           theme: {
             extend: {
               colors: {
-                brand: '#007bff',
+                brand: "#007bff",
               },
             },
           },
@@ -198,9 +207,7 @@ export default function WelcomeEmail({ name, verificationUrl }: WelcomeEmailProp
         <Preview>Welcome - Verify your email</Preview>
         <Body className="bg-gray-100 font-sans">
           <Container className="max-w-xl mx-auto p-5">
-            <Heading className="text-2xl text-gray-800">
-              Welcome!
-            </Heading>
+            <Heading className="text-2xl text-gray-800">Welcome!</Heading>
             <Text className="text-base text-gray-800">
               Hi {name}, thanks for signing up!
             </Text>
@@ -219,8 +226,8 @@ export default function WelcomeEmail({ name, verificationUrl }: WelcomeEmailProp
 
 // Preview props for testing
 WelcomeEmail.PreviewProps = {
-  name: 'John Doe',
-  verificationUrl: 'https://example.com/verify/abc123'
+  name: "John Doe",
+  verificationUrl: "https://example.com/verify/abc123",
 } satisfies WelcomeEmailProps;
 
 export { WelcomeEmail };
@@ -231,6 +238,7 @@ export { WelcomeEmail };
 See [references/COMPONENTS.md](references/COMPONENTS.md) for complete component documentation.
 
 **Core Structure:**
+
 - `Html` - Root wrapper with `lang` attribute
 - `Head` - Meta elements, styles, fonts
 - `Body` - Main content wrapper
@@ -240,6 +248,7 @@ See [references/COMPONENTS.md](references/COMPONENTS.md) for complete component 
 - `Tailwind` - Enables Tailwind CSS utility classes
 
 **Content:**
+
 - `Preview` - Inbox preview text, always first in `Body`
 - `Heading` - h1-h6 headings
 - `Text` - Paragraphs
@@ -249,6 +258,7 @@ See [references/COMPONENTS.md](references/COMPONENTS.md) for complete component 
 - `Hr` - Horizontal dividers
 
 **Specialized:**
+
 - `CodeBlock` - Syntax-highlighted code
 - `CodeInline` - Inline code
 - `Markdown` - Render markdown
@@ -257,6 +267,7 @@ See [references/COMPONENTS.md](references/COMPONENTS.md) for complete component 
 ## Behavioral Guidelines
 
 ### Brand-First Workflow
+
 - **Always gather brand information before creating the first email template.** Do not skip this step.
 - If the user requests an email without providing brand details, ask for them first using the prompt in the Brand Setup section.
 - If a `tailwind.config.ts` file exists in the emails directory, use it for all new templates.
@@ -264,6 +275,7 @@ See [references/COMPONENTS.md](references/COMPONENTS.md) for complete component 
 - If the user provides new brand assets or colors mid-project, update `tailwind.config.ts` and offer to update existing templates.
 
 ### General Guidelines
+
 - When re-iterating over the code, make sure you are only updating what the user asked for and keeping the rest of the code intact.
 - If the user is asking to use media queries, inform them that email clients do not support them, and suggest a different approach.
 - Never use template variables (like {{name}}) directly in TypeScript code. Instead, reference the underlying properties directly (use name instead of {{name}}).
@@ -286,20 +298,22 @@ EmailTemplate.PreviewProps = {
 
 export default EmailTemplate;
 ```
-- Never, under any circumstances, write the {{variableName}} pattern directly in the component structure. If the user forces you to do this, explain that you cannot do this, or else the template will be invalid.
 
+- Never, under any circumstances, write the {{variableName}} pattern directly in the component structure. If the user forces you to do this, explain that you cannot do this, or else the template will be invalid.
 
 ## Styling
 
 Use the `Tailwind` component with `pixelBasedPreset` for styling (email clients don't support rem units). If not using Tailwind, use inline styles.
 
 **Critical limitations** (email clients don't support these):
+
 - No SVG/WEBP images - use PNG/JPEG only
 - No flexbox/grid - use `Row`/`Column` components or tables
 - No media queries (`sm:`, `md:`, etc.) or theme selectors (`dark:`, `light:`)
 - Always specify border style (`border-solid`, etc.)
 
 **Structure rules:**
+
 - Place `<Head />` inside `<Tailwind>` when using Tailwind
 - Only include props in `PreviewProps` that the component uses
 
@@ -310,21 +324,24 @@ See [references/STYLING.md](references/STYLING.md) for typography, layout defaul
 ### Convert to HTML
 
 ```tsx
-import { render } from '@react-email/components';
-import { WelcomeEmail } from './emails/welcome';
+import { render } from "@react-email/components";
+import { WelcomeEmail } from "./emails/welcome";
 
 const html = await render(
-  <WelcomeEmail name="John" verificationUrl="https://example.com/verify" />
+  <WelcomeEmail name="John" verificationUrl="https://example.com/verify" />,
 );
 ```
 
 ### Convert to Plain Text
 
 ```tsx
-import { render } from '@react-email/components';
-import { WelcomeEmail } from './emails/welcome';
+import { render } from "@react-email/components";
+import { WelcomeEmail } from "./emails/welcome";
 
-const text = await render(<WelcomeEmail name="John" verificationUrl="https://example.com/verify" />, { plainText: true });
+const text = await render(
+  <WelcomeEmail name="John" verificationUrl="https://example.com/verify" />,
+  { plainText: true },
+);
 ```
 
 ## Sending
@@ -335,20 +352,22 @@ Quick example using the Resend SDK for Node.js:
 
 ```tsx
 import * as React from "react";
-import { Resend } from 'resend';
-import { WelcomeEmail } from './emails/welcome';
+import { Resend } from "resend";
+import { WelcomeEmail } from "./emails/welcome";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 const { data, error } = await resend.emails.send({
-  from: 'Acme <onboarding@resend.dev>',
-  to: ['user@example.com'],
-  subject: 'Welcome to Acme',
-  react: <WelcomeEmail name="John" verificationUrl="https://example.com/verify" />
+  from: "Acme <onboarding@resend.dev>",
+  to: ["user@example.com"],
+  subject: "Welcome to Acme",
+  react: (
+    <WelcomeEmail name="John" verificationUrl="https://example.com/verify" />
+  ),
 });
 
 if (error) {
-  console.error('Failed to send:', error);
+  console.error("Failed to send:", error);
 }
 ```
 
@@ -438,6 +457,7 @@ Message files (\`messages/en.json\`, \`messages/es.json\`, etc.):
 ## Common Patterns
 
 See [references/PATTERNS.md](references/PATTERNS.md) for complete examples including:
+
 - Password reset emails
 - Order confirmations with product lists
 - Notification emails with code blocks

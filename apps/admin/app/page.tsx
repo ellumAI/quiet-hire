@@ -1,4 +1,4 @@
-import { Button } from "@hackhyre/ui/components/button"
+import { Button } from "@hackhyre/ui/components/button";
 
 export default function Page() {
   return (
@@ -8,5 +8,5 @@ export default function Page() {
         <Button size="sm">Get Started</Button>
       </div>
     </div>
-  )
+  );
 }
